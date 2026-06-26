@@ -1,6 +1,6 @@
 {
 	"name": "json-inspector",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Render JSON code blocks in Obsidian as an interactive inspector (Tree / Raw / Query) with lossless numbers.",
 	"main": "main.js",
 	"type": "module",
