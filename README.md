@@ -8,6 +8,10 @@ Everything runs **locally**: no network requests, no telemetry, no accounts,
 no `eval`. Numbers are parsed **losslessly**, so big integers and
 high-precision decimals are never altered.
 
+Created for [JSON Formatter](https://www.jstools.space/json-formatter)
+
+![Screenshot](./screenshot.png)
+
 ## Usage
 
 Add a fenced code block with the language `json-inspector`:
@@ -130,7 +134,7 @@ files Obsidian needs.
    appears in the in-app Community Plugins browser.
 
 See the official guide:
-<https://docs.obsidian.md/Plugins/Releasing/Submit+your+plugin>.
+<https://community.obsidian.md/plugins/json-inspector>.
 
 ## Development notes
 
