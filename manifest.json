@@ -1,11 +1,11 @@
 {
-	"id": "json-inspector",
-	"name": "JSON Inspector",
-	"version": "1.0.1",
-	"minAppVersion": "1.4.0",
-	"description": "Render JSON code blocks as an interactive inspector with Tree, Raw and JSONPath query views. Lossless number handling, search, and copy actions. Fully local, no network.",
-	"author": "Anton",
-	"authorUrl": "",
-	"fundingUrl": "",
-	"isDesktopOnly": false
+  "id": "json-inspector",
+  "name": "JSON Inspector",
+  "version": "1.0.2",
+  "minAppVersion": "1.4.0",
+  "description": "Render JSON code blocks as an interactive inspector with Tree, Raw and JSONPath query views. Lossless number handling, search, and copy actions. Fully local, no network.",
+  "author": "Anton",
+  "authorUrl": "",
+  "fundingUrl": "",
+  "isDesktopOnly": false
 }

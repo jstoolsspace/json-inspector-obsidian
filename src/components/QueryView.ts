@@ -108,8 +108,8 @@ export class QueryView {
   }
 
   private renderResults(matches: JsonPathMatch[]): void {
-    const frag = document.createDocumentFragment();
-    const host = document.createElement("div");
+    const frag = activeDocument.createDocumentFragment();
+    const host = activeDocument.createElement("div");
     const limit = Math.min(matches.length, this.settings.maxInitialNodes);
     for (let i = 0; i < limit; i++) {
       const m = matches[i];
@@ -142,9 +142,11 @@ export class QueryView {
       attr: { "aria-label": label, title: label },
     });
     setIcon(btn, icon);
-    btn.addEventListener("click", async () => {
-      const ok = await copyText(text);
-      new Notice(ok ? "Copied" : "Copy failed");
+    btn.addEventListener("click", () => {
+      void (async () => {
+        const ok = await copyText(text);
+        new Notice(ok ? "Copied" : "Copy failed");
+      })();
     });
   }
 

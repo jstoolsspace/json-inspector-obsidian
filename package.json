@@ -1,41 +1,32 @@
 {
-	"name": "json-inspector",
-	"version": "1.0.1",
-	"description": "Render JSON code blocks in Obsidian as an interactive inspector (Tree / Raw / Query) with lossless numbers.",
-	"main": "main.js",
-	"type": "module",
-	"scripts": {
-		"dev": "node esbuild.config.mjs",
-		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
-		"lint": "eslint . --ext .ts",
-		"lint:fix": "eslint . --ext .ts --fix",
-		"test": "vitest run",
-		"test:watch": "vitest",
-		"version": "node version-bump.mjs && git add manifest.json versions.json"
-	},
-	"keywords": [
-		"obsidian",
-		"obsidian-plugin",
-		"json",
-		"inspector",
-		"jsonpath",
-		"viewer"
-	],
-	"author": "Anton",
-	"license": "MIT",
-	"devDependencies": {
-		"@types/node": "^20.11.0",
-		"@typescript-eslint/eslint-plugin": "^7.0.0",
-		"@typescript-eslint/parser": "^7.0.0",
-		"builtin-modules": "^3.3.0",
-		"esbuild": "^0.20.0",
-		"eslint": "^8.57.0",
-		"obsidian": "^1.4.11",
-		"tslib": "^2.6.2",
-		"typescript": "^5.4.0",
-		"vitest": "^1.6.0"
-	},
-	"dependencies": {
-		"lossless-json": "^4.0.1"
-	}
+  "name": "json-inspector",
+  "version": "1.0.2",
+  "description": "Render JSON code blocks in Obsidian as an interactive inspector (Tree / Raw / Query) with lossless numbers.",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "version": "node version-bump.mjs && git add manifest.json versions.json"
+  },
+  "keywords": ["obsidian", "obsidian-plugin", "json", "inspector", "jsonpath", "viewer"],
+  "author": "Anton",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "builtin-modules": "^3.3.0",
+    "esbuild": "^0.20.0",
+    "eslint": "^8.57.0",
+    "obsidian": "^1.4.11",
+    "tslib": "^2.6.2",
+    "typescript": "^5.4.0",
+    "vitest": "^1.6.0"
+  },
+  "dependencies": { "lossless-json": "^4.0.1" }
 }

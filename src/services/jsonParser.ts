@@ -190,7 +190,7 @@ export function isContainer(value: JsonValue): value is JsonObject | JsonArray {
 export function childCount(value: JsonValue): number {
   if (Array.isArray(value)) return value.length;
   if (value !== null && typeof value === "object" && !isLosslessNumber(value)) {
-    return Object.keys(value as JsonObject).length;
+    return Object.keys(value).length;
   }
   return 0;
 }

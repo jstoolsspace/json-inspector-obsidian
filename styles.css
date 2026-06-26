@@ -521,35 +521,8 @@
   margin: 0 0 8px;
   padding: 8px;
   background: var(--background-secondary);
-  border: 1px solid var(--jsi-border);
-  border-left: 3px solid var(--text-error);
-  border-radius: var(--jsi-radius);
-  overflow-x: auto;
-}
+  bord
 
-.jsi-error-snippet code {
-  font-family: var(--jsi-mono);
-  font-size: 12px;
-  white-space: pre;
-  color: var(--text-normal);
-}
-
-/* ---- Mobile ---- */
-.is-mobile .jsi-toolbar,
-.is-mobile .jsi-raw-toolbar {
-  gap: 3px;
-}
-
-.is-mobile .jsi-btn-label {
+.jsi-collapsed {
   display: none;
-}
-
-.is-mobile .jsi-tab {
-  padding: 4px 8px;
-}
-
-@media (max-width: 420px) {
-  .jsi-btn-label {
-    display: none;
-  }
 }

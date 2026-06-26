@@ -78,12 +78,14 @@ export class RawView {
     const iconEl = btn.createSpan({ cls: "jsi-btn-icon" });
     setIcon(iconEl, "copy");
     const label = btn.createSpan({ cls: "jsi-btn-label", text: "Copy" });
-    btn.addEventListener("click", async () => {
-      const ok = await copyText(this.current);
-      label.textContent = ok ? "COPIED" : "FAILED";
-      window.setTimeout(() => {
-        label.textContent = "Copy";
-      }, 1200);
+    btn.addEventListener("click", () => {
+      void (async () => {
+        const ok = await copyText(this.current);
+        label.textContent = ok ? "COPIED" : "FAILED";
+        window.setTimeout(() => {
+          label.textContent = "Copy";
+        }, 1200);
+      })();
     });
   }
 

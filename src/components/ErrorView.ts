@@ -38,16 +38,18 @@ export class ErrorView {
       attr: { "aria-label": "Copy original source" },
     });
     copyBtn.createSpan({ text: "Copy source" });
-    copyBtn.addEventListener("click", async () => {
-      const ok = await copyText(source);
-      const span = copyBtn.querySelector("span");
-      if (span) {
-        const prev = span.textContent;
-        span.textContent = ok ? "COPIED" : "Copy failed";
-        window.setTimeout(() => {
-          span.textContent = prev;
-        }, 1200);
-      }
+    copyBtn.addEventListener("click", () => {
+      void (async () => {
+        const ok = await copyText(source);
+        const span = copyBtn.querySelector("span");
+        if (span) {
+          const prev = span.textContent;
+          span.textContent = ok ? "COPIED" : "Copy failed";
+          window.setTimeout(() => {
+            span.textContent = prev;
+          }, 1200);
+        }
+      })();
     });
   }
 

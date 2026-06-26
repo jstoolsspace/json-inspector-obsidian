@@ -78,7 +78,6 @@ export class JsonInspectorSettingTab extends PluginSettingTab {
         sl
           .setLimits(0, 10, 1)
           .setValue(this.plugin.settings.defaultExpandDepth)
-          .setDynamicTooltip()
           .onChange(async (v) => {
             this.plugin.settings.defaultExpandDepth = v;
             await this.plugin.saveSettings();
@@ -94,7 +93,7 @@ export class JsonInspectorSettingTab extends PluginSettingTab {
           .addOption("4", "4 spaces")
           .setValue(String(this.plugin.settings.indentSize))
           .onChange(async (v) => {
-            this.plugin.settings.indentSize = (Number(v) === 4 ? 4 : 2) as 2 | 4;
+            this.plugin.settings.indentSize = Number(v) === 4 ? 4 : 2;
             await this.plugin.saveSettings();
           }),
       );

@@ -523,7 +523,7 @@ function skip(st: PState): void {
   while (st.i < st.src.length && /\s/.test(st.src[st.i])) st.i++;
 }
 
-type FilterValue = string | number | boolean | null | undefined | JsonValue;
+type FilterValue = number | undefined | JsonValue;
 
 function evalFilter(node: FilterNode, current: JsonValue): FilterValue {
   switch (node.type) {

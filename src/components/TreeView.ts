@@ -133,7 +133,7 @@ export class TreeView {
 
   private onKeyDown(e: KeyboardEvent): void {
     const rows = this.visibleRows();
-    const active = (document.activeElement as HTMLElement) ?? this.focusedRow;
+    const active = (activeDocument.activeElement as HTMLElement) ?? this.focusedRow;
     const idx = active ? rows.indexOf(active) : -1;
     switch (e.key) {
       case "ArrowDown":

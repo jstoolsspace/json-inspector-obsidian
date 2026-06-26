@@ -105,7 +105,7 @@ export class TreeNode {
     }
     this.expanded = true;
     this.ensureBuilt();
-    if (this.childrenEl) this.childrenEl.style.display = "";
+    if (this.childrenEl) this.childrenEl.removeClass("jsi-collapsed");
     this.updateToggle();
     if (this.row) this.row.setAttribute("aria-expanded", "true");
     this.ctx.onStructureChange();
@@ -114,7 +114,7 @@ export class TreeNode {
   collapse(): void {
     if (!this.isExpandable || !this.expanded || this.isRoot) return;
     this.expanded = false;
-    if (this.childrenEl) this.childrenEl.style.display = "none";
+    if (this.childrenEl) this.childrenEl.addClass("jsi-collapsed");
     this.updateToggle();
     if (this.row) this.row.setAttribute("aria-expanded", "false");
     this.ctx.onStructureChange();
@@ -164,7 +164,7 @@ export class TreeNode {
     this.row = this.el.createDiv({ cls: "jsi-row" });
     this.row.setAttribute("role", "treeitem");
     this.row.tabIndex = -1;
-    this.row.style.setProperty("--jsi-depth", String(this.depth));
+    this.row.setCssProps({ "--jsi-depth": String(this.depth) });
 
     // Toggle / spacer
     if (this.isExpandable) {
@@ -269,7 +269,7 @@ export class TreeNode {
     }
     const entries = this.entries();
     const end = Math.min(this.rendered + count, entries.length);
-    const frag = document.createDocumentFragment();
+    const frag = activeDocument.createDocumentFragment();
     const host = createDiv();
     for (let i = this.rendered; i < end; i++) {
       const [seg, val] = entries[i];
@@ -293,7 +293,7 @@ export class TreeNode {
         cls: "jsi-more",
         text: `Show ${Math.min(CHUNK, entries.length - this.rendered)} more (${entries.length - this.rendered} remaining)`,
       });
-      this.moreBtn.style.setProperty("--jsi-depth", String(this.depth + 1));
+      this.moreBtn.setCssProps({ "--jsi-depth": String(this.depth + 1) });
       this.moreBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         this.renderMore(CHUNK);
@@ -385,5 +385,5 @@ export class TreeNode {
 }
 
 function createDiv(): HTMLElement {
-  return document.createElement("div");
+  return activeDocument.createElement("div");
 }
