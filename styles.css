@@ -1,0 +1,555 @@
+/* JSON Inspector — styles
+   Native to Obsidian light/dark themes via CSS variables.
+   Technical look: straight borders, compact toolbar, monospace labels,
+   square icon buttons, no gradients, minimal rounding. */
+
+.jsi-root {
+  --jsi-border: var(--background-modifier-border);
+  --jsi-radius: 3px;
+  --jsi-mono: var(--font-monospace, ui-monospace, SFMono-Regular, Menlo, monospace);
+  border: 1px solid var(--jsi-border);
+  border-radius: var(--jsi-radius);
+  background: var(--background-primary);
+  color: var(--text-normal);
+  font-size: var(--font-ui-small, 13px);
+  margin: 0.5em 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+/* ---- Toolbar ---- */
+.jsi-toolbar {
+  display: flex;
+  align-items: stretch;
+  gap: 4px;
+  padding: 4px;
+  border-bottom: 1px solid var(--jsi-border);
+  background: var(--background-secondary);
+  flex-wrap: wrap;
+}
+
+.jsi-tabs {
+  display: flex;
+  gap: 2px;
+}
+
+.jsi-tab {
+  font-family: var(--jsi-mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border: 1px solid var(--jsi-border);
+  border-radius: var(--jsi-radius);
+  background: var(--background-primary);
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.jsi-tab:hover {
+  color: var(--text-normal);
+  background: var(--background-modifier-hover);
+}
+
+.jsi-tab.is-active {
+  color: var(--text-on-accent);
+  background: var(--interactive-accent);
+  border-color: var(--interactive-accent);
+}
+
+.jsi-spacer {
+  flex: 1 1 auto;
+}
+
+/* ---- Buttons ---- */
+.jsi-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--jsi-mono);
+  font-size: 11px;
+  padding: 4px 8px;
+  border: 1px solid var(--jsi-border);
+  border-radius: var(--jsi-radius);
+  background: var(--background-primary);
+  color: var(--text-muted);
+  cursor: pointer;
+  box-shadow: none;
+}
+
+.jsi-btn:hover {
+  color: var(--text-normal);
+  background: var(--background-modifier-hover);
+}
+
+.jsi-btn.is-active {
+  color: var(--text-on-accent);
+  background: var(--interactive-accent);
+  border-color: var(--interactive-accent);
+}
+
+.jsi-square-btn {
+  padding: 4px;
+  width: 26px;
+  height: 26px;
+  justify-content: center;
+}
+
+.jsi-square-btn .svg-icon {
+  width: 15px;
+  height: 15px;
+}
+
+.jsi-btn-icon {
+  display: inline-flex;
+}
+
+.jsi-btn-icon .svg-icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* Visible focus states everywhere */
+.jsi-tab:focus-visible,
+.jsi-btn:focus-visible,
+.jsi-action-btn:focus-visible,
+.jsi-row:focus-visible,
+.jsi-search-input:focus-visible,
+.jsi-query-input:focus-visible,
+.jsi-history-chip:focus-visible,
+.jsi-more:focus-visible {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: -1px;
+}
+
+/* ---- Body ---- */
+.jsi-body {
+  padding: 6px;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* ---- Tree ---- */
+.jsi-tree-controls {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.jsi-tree {
+  font-family: var(--jsi-mono);
+  font-size: var(--font-ui-smaller, 12px);
+  line-height: 1.6;
+}
+
+.jsi-row {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  padding-left: calc(var(--jsi-depth, 0) * 16px);
+  white-space: nowrap;
+  border-radius: 2px;
+  cursor: default;
+}
+
+.jsi-row:hover {
+  background: var(--background-modifier-hover);
+}
+
+.jsi-row:hover .jsi-actions {
+  visibility: visible;
+}
+
+.jsi-current-hit {
+  background: var(--text-highlight-bg);
+}
+
+.jsi-toggle {
+  display: inline-block;
+  width: 14px;
+  text-align: center;
+  color: var(--text-faint);
+  cursor: pointer;
+  user-select: none;
+  flex: 0 0 auto;
+}
+
+.jsi-toggle-empty {
+  cursor: default;
+}
+
+.jsi-key {
+  color: var(--text-accent);
+}
+
+.jsi-index {
+  color: var(--text-faint);
+}
+
+.jsi-colon {
+  color: var(--text-faint);
+}
+
+.jsi-summary,
+.jsi-value {
+  min-width: 0;
+}
+
+/* Value type colors */
+.jsi-string {
+  color: var(--color-green, #4caf50);
+}
+
+.jsi-number {
+  color: var(--color-blue, #2196f3);
+}
+
+.jsi-boolean {
+  color: var(--color-purple, #9c27b0);
+}
+
+.jsi-null {
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+.jsi-bracket {
+  color: var(--text-muted);
+}
+
+.jsi-count {
+  color: var(--text-faint);
+  font-size: 0.9em;
+}
+
+.jsi-mark {
+  background: var(--text-highlight-bg);
+  color: var(--text-normal);
+  border-radius: 2px;
+}
+
+.jsi-actions {
+  visibility: hidden;
+  margin-left: 6px;
+  flex: 0 0 auto;
+}
+
+.jsi-action-btn {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  border-radius: 2px;
+}
+
+.jsi-action-btn:hover {
+  color: var(--text-normal);
+  background: var(--background-modifier-hover);
+}
+
+/* Long values: wrap mode */
+.jsi-tree.jsi-wrap .jsi-row {
+  white-space: normal;
+  align-items: flex-start;
+}
+
+.jsi-tree.jsi-wrap .jsi-value {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.jsi-more {
+  display: inline-block;
+  margin: 2px 0 2px calc(var(--jsi-depth, 0) * 16px);
+  padding: 2px 8px;
+  font-family: var(--jsi-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  background: var(--background-secondary);
+  border: 1px dashed var(--jsi-border);
+  border-radius: var(--jsi-radius);
+  cursor: pointer;
+}
+
+.jsi-more:hover {
+  color: var(--text-normal);
+}
+
+/* ---- Raw ---- */
+.jsi-raw-toolbar {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.jsi-raw-pre {
+  margin: 0;
+  padding: 8px;
+  background: var(--background-secondary);
+  border: 1px solid var(--jsi-border);
+  border-radius: var(--jsi-radius);
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.jsi-raw-pre code {
+  font-family: var(--jsi-mono);
+  font-size: var(--font-ui-smaller, 12px);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: var(--text-normal);
+}
+
+.jsi-raw-pre.jsi-nowrap code {
+  white-space: pre;
+  overflow-wrap: normal;
+}
+
+/* ---- Search ---- */
+.jsi-search {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border-bottom: 1px solid var(--jsi-border);
+  background: var(--background-secondary);
+}
+
+.jsi-search-icon {
+  display: inline-flex;
+  color: var(--text-muted);
+}
+
+.jsi-search-icon .svg-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.jsi-search-input {
+  flex: 1 1 auto;
+  min-width: 80px;
+  font-family: var(--jsi-mono);
+  font-size: 12px;
+  padding: 3px 6px;
+  background: var(--background-primary);
+  border: 1px solid var(--jsi-border);
+  border-radius: var(--jsi-radius);
+  color: var(--text-normal);
+}
+
+.jsi-search-count {
+  font-family: var(--jsi-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  min-width: 36px;
+  text-align: center;
+}
+
+.jsi-search-count.jsi-no-results {
+  color: var(--text-error);
+}
+
+/* ---- Query ---- */
+.jsi-query-bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.jsi-query-prompt {
+  font-family: var(--jsi-mono);
+  color: var(--text-accent);
+  font-weight: bold;
+}
+
+.jsi-query-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: var(--jsi-mono);
+  font-size: 12px;
+  padding: 4px 6px;
+  background: var(--background-secondary);
+  border: 1px solid var(--jsi-border);
+  border-radius: var(--jsi-radius);
+  color: var(--text-normal);
+}
+
+.jsi-query-status {
+  font-family: var(--jsi-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  min-height: 1em;
+}
+
+.jsi-query-error {
+  color: var(--text-error);
+}
+
+.jsi-query-results {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.jsi-result {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 4px 6px;
+  border: 1px solid var(--jsi-border);
+  border-radius: var(--jsi-radius);
+  background: var(--background-secondary);
+}
+
+.jsi-result-main {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.jsi-result-path {
+  font-family: var(--jsi-mono);
+  font-size: 11px;
+  color: var(--text-accent);
+  overflow-wrap: anywhere;
+}
+
+.jsi-result-value {
+  font-family: var(--jsi-mono);
+  font-size: 12px;
+  color: var(--text-normal);
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.jsi-result-actions {
+  display: flex;
+  gap: 2px;
+  flex: 0 0 auto;
+}
+
+.jsi-result-more {
+  font-family: var(--jsi-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+  padding: 4px 6px;
+}
+
+.jsi-query-history {
+  margin-top: 8px;
+}
+
+.jsi-history-label {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 4px;
+}
+
+.jsi-history-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.jsi-history-chip {
+  font-family: var(--jsi-mono);
+  font-size: 11px;
+  padding: 2px 8px;
+  border: 1px solid var(--jsi-border);
+  border-radius: var(--jsi-radius);
+  background: var(--background-primary);
+  color: var(--text-muted);
+  cursor: pointer;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.jsi-history-chip:hover {
+  color: var(--text-normal);
+  background: var(--background-modifier-hover);
+}
+
+/* ---- Error ---- */
+.jsi-error {
+  padding: 10px;
+}
+
+.jsi-error-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.jsi-error-icon {
+  display: inline-flex;
+  color: var(--text-error);
+}
+
+.jsi-error-icon .svg-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.jsi-error-title {
+  font-weight: 600;
+  color: var(--text-error);
+}
+
+.jsi-error-location {
+  font-family: var(--jsi-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.jsi-error-message {
+  font-size: 12px;
+  color: var(--text-normal);
+  margin-bottom: 8px;
+  overflow-wrap: anywhere;
+}
+
+.jsi-error-snippet {
+  margin: 0 0 8px;
+  padding: 8px;
+  background: var(--background-secondary);
+  border: 1px solid var(--jsi-border);
+  border-left: 3px solid var(--text-error);
+  border-radius: var(--jsi-radius);
+  overflow-x: auto;
+}
+
+.jsi-error-snippet code {
+  font-family: var(--jsi-mono);
+  font-size: 12px;
+  white-space: pre;
+  color: var(--text-normal);
+}
+
+/* ---- Mobile ---- */
+.is-mobile .jsi-toolbar,
+.is-mobile .jsi-raw-toolbar {
+  gap: 3px;
+}
+
+.is-mobile .jsi-btn-label {
+  display: none;
+}
+
+.is-mobile .jsi-tab {
+  padding: 4px 8px;
+}
+
+@media (max-width: 420px) {
+  .jsi-btn-label {
+    display: none;
+  }
+}

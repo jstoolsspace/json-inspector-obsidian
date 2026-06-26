@@ -1,0 +1,15 @@
+# build / deps
+node_modules/
+main.js
+*.js.map
+
+# obsidian
+data.json
+
+# os / editor
+.DS_Store
+.idea/
+*.log
+
+# test
+coverage/
